@@ -101,8 +101,8 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Test SSH connection
-        run: ssh -o StrictHostKeyChecking=no ubuntu@${{ env.MASTER_IP }} "echo Connected"
+      # - name: Test SSH connection
+      #   run: ssh -o StrictHostKeyChecking=no ubuntu@${{ env.MASTER_IP }} "echo Connected"
 
       - name: Deploy k3s master node
         run: |
