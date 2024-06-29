@@ -127,3 +127,6 @@ pulumi.export("nginx_instance", nginx_instance.public_ip)
 
 
 
+
+
+
