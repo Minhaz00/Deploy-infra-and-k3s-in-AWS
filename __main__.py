@@ -73,7 +73,7 @@ security_group = aws.ec2.SecurityGroup("web-secgrp",
 
 # Create instances in the VPC and subnet
 ami_id = "ami-008c09a18ce321b3c"  # Replace with a valid AMI ID for your region
-instance_type = "t2.small"
+instance_type = "t2.micro"
 
 master_node = aws.ec2.Instance("master-node",
     instance_type=instance_type,
