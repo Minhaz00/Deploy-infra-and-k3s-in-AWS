@@ -31,23 +31,28 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      # login
       - name: Pulumi login
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
         run: pulumi login
 
+      # select stack
       - name: Pulumi stack select
         run: pulumi stack select dev
 
       - name: Set public key environment variable
         run: echo "PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}" >> $GITHUB_ENV
 
+      # refresh
       - name: Pulumi refresh
         run: pulumi refresh --yes
 
+      # up
       - name: Pulumi up
         run: pulumi up --yes
 
+      # save outputs
       - name: Save Pulumi outputs
         id: pulumi_outputs
         run: |
