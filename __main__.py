@@ -1,5 +1,6 @@
 import pulumi
 import pulumi_aws as aws
+import os
 
 # Read the public key from the environment (set by GitHub Actions)
 public_key = os.getenv("PUBLIC_KEY")
