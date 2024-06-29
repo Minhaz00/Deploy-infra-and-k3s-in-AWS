@@ -80,6 +80,7 @@ master_node = aws.ec2.Instance("master-node",
     ami=ami_id,
     subnet_id=public_subnet.id,
     key_name=key_pair.key_name,
+    security_group=security_group,
     tags={
         "Name": "master-node"
     })
@@ -89,6 +90,7 @@ worker_node_1 = aws.ec2.Instance("worker-node-1",
     ami=ami_id,
     subnet_id=public_subnet.id,
     key_name=key_pair.key_name,
+    security_group=security_group,
     tags={
         "Name": "worker-node-1"
     })
@@ -98,6 +100,7 @@ worker_node_2 = aws.ec2.Instance("worker-node-2",
     ami=ami_id,
     subnet_id=public_subnet.id,
     key_name=key_pair.key_name,
+    security_group=security_group,
     tags={
         "Name": "worker-node-2"
     })
