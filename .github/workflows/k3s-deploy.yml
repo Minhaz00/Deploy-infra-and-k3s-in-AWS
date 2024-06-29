@@ -120,4 +120,4 @@ jobs:
           MASTER_IP=${{ env.MASTER_IP }}
           WORKER2_IP=${{ env.WORKER2_IP }}
           NODE_TOKEN=$(ssh -o StrictHostKeyChecking=no ubuntu@$MASTER_IP "sudo cat /var/lib/rancher/k3s/server/node-token")
-          ssh -o StrictHostKeyChecking=no ubuntu@$WORKER2_IP "curl -sfL https://get.k3s.io | K3S_URL=https://$MASTER_IP:6443 K3S_TOKEN=$NODE_TOKEN sh -"
+          ssh -o StrictHostKeyChecking=no ubuntu@$WORKER2_IP "curl -sfL https://get.k3s.io | K3S_URL=https://$MASTER_IP:6443 K3S_TOKEN=$NODE_TOKEN sh -"
