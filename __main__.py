@@ -22,7 +22,7 @@ public_subnet = aws.ec2.Subnet("public-subnet",
     vpc_id=vpc.id,
     cidr_block="10.0.1.0/24",
     map_public_ip_on_launch=True,
-    availability_zone="us-east-1a",
+    availability_zone="ap-southeast-1a",
 )
 
 # Create Internet Gateway
@@ -105,10 +105,25 @@ worker_node_2 = aws.ec2.Instance("worker-node-2",
         "Name": "worker-node-2"
     })
 
+
+# Create Nginx instance
+nginx_instance = aws.ec2.Instance("nginx-instance",
+    instance_type=instance_type,
+    ami=ami_id,
+    subnet_id=public_subnet.id,
+    key_name=key_pair.key_name,
+    vpc_security_group_ids=[security_group.id],
+    tags={
+        "Name": "nginx-instance"
+    })
+
+
+
 # Export outputs
 pulumi.export("master_public_ip", master_node.public_ip)
 pulumi.export("worker1_public_ip", worker_node_1.public_ip)
 pulumi.export("worker2_public_ip", worker_node_2.public_ip)
+pulumi.export("worker2_public_ip", nginx_instance.public_ip)
 
 
 
