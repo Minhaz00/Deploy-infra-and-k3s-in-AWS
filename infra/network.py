@@ -1,9 +1,9 @@
 import pulumi_aws as aws
 
 class Network:
-    def __init__(self):
-        self.vpc = aws.ec2.Vpc("my-vpc",
-            cidr_block="10.0.0.0/16",
+    def __init__(self, vpc_name: str, vpc_cidr_block: str):
+        self.vpc = aws.ec2.Vpc(vpc_name,
+            cidr_block=vpc_cidr_block,
             enable_dns_hostnames=True,
             enable_dns_support=True)
 
