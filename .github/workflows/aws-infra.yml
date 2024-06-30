@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'infra/**'
 
 jobs:
   deploy:
@@ -47,12 +45,12 @@ jobs:
         run: echo "PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}" >> $GITHUB_ENV
 
       # refresh
-      # - name: Pulumi refresh
-      #   run: pulumi refresh --yes 
+      - name: Pulumi refresh
+        run: pulumi refresh --yes 
 
       # up
       - name: Pulumi up
-        run: pulumi up --yes --cwd infra
+        run: pulumi up --yes 
 
       # save outputs
       - name: Save Pulumi outputs
