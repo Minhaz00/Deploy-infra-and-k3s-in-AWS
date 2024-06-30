@@ -41,7 +41,7 @@ jobs:
 
       # select stack
       - name: Pulumi stack select
-        run: pulumi stack select dev
+        run: pulumi stack select dev --cwd infra
 
       - name: Set public key environment variable
         run: echo "PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}" >> $GITHUB_ENV

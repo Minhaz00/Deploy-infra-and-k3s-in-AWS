@@ -27,7 +27,7 @@ jobs:
         run: pulumi login
 
       - name: Pulumi stack select
-        run: pulumi stack select dev
+        run: pulumi stack select dev1
 
       # - name: Pulumi refresh
       #   run: pulumi refresh --yes
