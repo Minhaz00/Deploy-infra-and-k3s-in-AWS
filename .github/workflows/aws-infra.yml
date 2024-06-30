@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'infra/**'
 
 jobs:
   deploy:
@@ -59,12 +61,10 @@ jobs:
           MASTER_IP=$(pulumi stack output master_public_ip)
           WORKER1_IP=$(pulumi stack output worker1_public_ip)
           WORKER2_IP=$(pulumi stack output worker2_public_ip)
-          NGINX_IP=$(pulumi stack output nginx_instance)
 
           echo "MASTER_IP=$MASTER_IP" >> $GITHUB_ENV
           echo "WORKER1_IP=$WORKER1_IP" >> $GITHUB_ENV
           echo "WORKER2_IP=$WORKER2_IP" >> $GITHUB_ENV
-          echo "NGINX_IP=$NGINX_IP" >> $GITHUB_ENV
 
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -75,4 +75,3 @@ jobs:
           echo "MASTER_IP=${{ env.MASTER_IP }}"
           echo "WORKER1_IP=${{ env.WORKER1_IP }}"
           echo "WORKER2_IP=${{ env.WORKER2_IP }}"
-          echo "NGINX_IP=${{ env.NGINX_IP }}"
