@@ -47,12 +47,12 @@ jobs:
         run: echo "PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}" >> $GITHUB_ENV
 
       # refresh
-      - name: Pulumi refresh
-        run: pulumi refresh --yes
+      # - name: Pulumi refresh
+      #   run: pulumi refresh --yes 
 
       # up
       - name: Pulumi up
-        run: pulumi up --yes
+        run: pulumi up --yes --cwd infra
 
       # save outputs
       - name: Save Pulumi outputs
