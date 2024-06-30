@@ -29,8 +29,8 @@ jobs:
       - name: Pulumi stack select
         run: pulumi stack select dev
 
-      - name: Pulumi refresh
-        run: pulumi refresh --yes
+      # - name: Pulumi refresh
+      #   run: pulumi refresh --yes
       
       - name: Save Pulumi outputs
         id: pulumi_outputs
