@@ -3,7 +3,7 @@ import pulumi
 
 class Instances:
     def __init__(self, subnet_id, security_group_id, key_name):
-        self.ami_id = "ami-003c463c8207b4dfa"  # Replace with a valid AMI ID for your region
+        self.ami_id = "ami-003c463c8207b4dfa"  
         self.instance_type = "t3.small"
         self.create_instances(subnet_id, security_group_id, key_name)
 
